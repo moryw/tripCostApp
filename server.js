@@ -14,7 +14,7 @@ app.get('/expenses', (req, res) => {/* */});
 
 const url = 'mongodb://localhost:27017'
 
-let db
+let db, trips, expenses
 
 mongo.connect(
   url,
@@ -24,5 +24,7 @@ mongo.connect(
       return ;
     }
     db = client.db('tripcost');
+    trips = db.collection('trips');
+    expenses = db.collection('expenses');
   }
 )
