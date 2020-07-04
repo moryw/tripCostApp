@@ -21,6 +21,7 @@ app.post('/trip', (req, res) => {
     res.status(200).json({ok:true});
   });
 });
+
 app.get('/trips', (req, res) => {
   trips.find().toArray((err, items) => {
     if (err) {
@@ -31,6 +32,7 @@ app.get('/trips', (req, res) => {
     res.status(200).json({trips:items});
   });
 });
+
 app.post('/expense', (req, res) => {
   expenses.insertOne(
     {
@@ -50,6 +52,7 @@ app.post('/expense', (req, res) => {
     }
   )
 });
+
 app.get('/expenses', (req, res) => {
   expenses.find({trip: req.body.trip}).toArray((err, items) => {
     if (err) {
